@@ -1,10 +1,7 @@
 	import java.io.File;
-import java.io.FilenameFilter;
 import java.io.IOException;
-	import java.nio.file.NoSuchFileException;
 	import java.util.Arrays;
 	import java.util.Scanner;
-import java.util.regex.Pattern;
 
 	public class LockedMe {
 		static String fullfile;
@@ -18,7 +15,7 @@ import java.util.regex.Pattern;
 			System.out.println("Developer Name:Leina Nazar Elgack\n\n");
 			System.out.println("\t\t\tMenu");
 			System.out.println("\t\t===================");
-			System.out.println(" 1. return the current file names in ascending order");
+			System.out.println(" 1. return the current file names in an ascending order");
 			System.out.println(" 2. Add a file to the existing directory list");
 			System.out.println(" 3. Delete a user specified file from the existing directory list");
 			System.out.println(" 4. Search a user specified file from the main directory");
@@ -49,8 +46,9 @@ import java.util.regex.Pattern;
 	    }
 		 
 		public static void ReturnFileName() throws IOException{
+			clrscr();
 			File dir = new File("d:\\leina\\java\\");
-			System.out.println("ALL files and directories that found in path "+dir);
+			System.out.println("\n ALL files and directories in an ascending order that found in path "+dir);
 			File[] files = dir.listFiles();
 			Arrays.sort(files, (f1, f2) -> f1.compareTo(f2));
 			for (File file : files) {
@@ -64,17 +62,14 @@ import java.util.regex.Pattern;
 			
 			msg();
 		}
-		
-		public static void secondoption() {
 			
-		}
-		
-		
 		public static void CreateFiles() throws IOException  {
+			
 			boolean result;
-			try {	
+			try {
+				clrscr();
 				Scanner inputf= new Scanner( System.in );
-			System.out.println(" Please Enter the file name you want to add it in location "+filepath);
+			System.out.println("\n Please Enter the file name you want to add it in location "+filepath);
 		         String s = inputf.nextLine().toLowerCase(); // Takes the filename with extension as the user input
 		         fullfile=filepath.concat(s).concat(".txt");
 		          file=new File(fullfile);
@@ -96,7 +91,8 @@ import java.util.regex.Pattern;
 		public static void DeleteFiles() throws IOException  {
 			
 			try {
-				System.out.println("Please Enter the file you want to delete from location "+filepath);
+				clrscr();
+				System.out.println("\n Please Enter the file you want to delete from location "+filepath);
 			Scanner inputd= new Scanner( System.in );
 		    String s =inputd.nextLine(); // Takes the filename with extension as the user input
 		    fullfile=(filepath.concat(s).concat(".txt")).toLowerCase();
@@ -123,8 +119,8 @@ import java.util.regex.Pattern;
 		
 				public static void SearchFile() throws IOException{
 			try {
-				
-				System.out.println("Please Enter the  file you want to search in location "+filepath);
+				clrscr();
+				System.out.println("\n Please Enter the  file you want to search in location "+filepath);
 				Scanner inputd= new Scanner( System.in );
 			    String s =inputd.nextLine(); // Takes the filename with extension as the user input
 			    fullfile=(filepath.concat(s).concat(".txt").toLowerCase());
